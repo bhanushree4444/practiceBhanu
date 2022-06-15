@@ -16,8 +16,6 @@ import org.testng.annotations.BeforeTest;
 import com.hospitalManagementSystem.Repo.HomePage;
 import com.hospitalManagementSystem.Repo.PatientLoginPage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class BaseClass {
 
 	public  WebDriver driver;

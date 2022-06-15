@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -100,25 +99,20 @@ public class BaseClass {
 		String timeout = propertyFileUtility.getDataFromPropertFile("timeout");
 		timeouts = jutil.stringToLong(timeout);
 		Random = jutil.getRandomNumber(1000);
-
+		ModuleName=propertyFileUtility.getDataFromPropertFile("ModuleName");
 		switch (browser) {
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
+		 System.setProperty(IconstantPath.CHROMEKEY,IconstantPath.CHROMEVALUE);
 			driver = new ChromeDriver();
 			break;
 		case"firefox":
-			WebDriverManager.firefoxdriver().setup();
+			System.setProperty(IconstantPath.GECKOKEY,IconstantPath.GECKOVALUE);
+			
 			driver=new FirefoxDriver();
 			break;
-			
-		case "edge":
-			WebDriverManager.edgedriver().setup();
-			driver=new EdgeDriver();
-			break;
-
 		default:
 			System.out.println("please specify proper browser key");
-			WebDriverManager.firefoxdriver().setup();
+			System.setProperty(IconstantPath.GECKOKEY,IconstantPath.GECKOVALUE);
 			driver=new FirefoxDriver();
 			break;
 
@@ -165,6 +159,19 @@ public class BaseClass {
 	 */
 	@AfterMethod(groups="baseClass")
 	public void afterMethpd() {
+		switch (ModuleName) {
+		case "patient":
+			
+			break;
+		case"doctor":
+			
+			break;
+			
+		case "admin":
+			
+			break;
+		}
+
 		
 	}
 

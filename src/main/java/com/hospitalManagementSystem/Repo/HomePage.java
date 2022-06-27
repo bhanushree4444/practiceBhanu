@@ -9,12 +9,26 @@ public class HomePage {
 	@FindBy(xpath ="//h3[.='Patients']/ancestor::div//span/a[@href='hms/user-login.php']")
 	private WebElement patientloginLink;
 	
+	@FindBy(xpath ="//h3[.='Patients']/ancestor::div//span/a[@href='hms/user-login.php']")
+	private WebElement doctorloginLink;
+	
+	@FindBy(xpath ="//h3[.='Patients']/ancestor::div//span/a[@href='hms/user-login.php']")
+	private WebElement adminloginLink;
+	
 	public  HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
 	public void patientloginLink() {
 		patientloginLink.click();
+	}
+	
+	public void doctorsloginLink() {
+		doctorloginLink.click();
+	}
+	
+	public void adminloginLink() {
+		adminloginLink.click();
 	}
 	
 

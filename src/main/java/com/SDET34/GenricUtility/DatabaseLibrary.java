@@ -15,6 +15,7 @@ import com.mysql.cj.jdbc.Driver;
  * @author USER
  *
  */
+
 public class DatabaseLibrary {
 	static Connection conn;
 	static Statement stat;
